@@ -35,6 +35,19 @@
             </form>
         </div>
 
+        <!-- Show FPR ONLY after prediction -->
+        {% if results %}
+            {% if fpr != "N/A" %}
+            <div class="alert alert-warning text-center mx-3">
+                <strong>False Positive Rate (FPR):</strong> {{ fpr }}
+            </div>
+            {% else %}
+            <div class="alert alert-secondary text-center mx-3">
+                FPR not available (no ground truth labels provided)
+            </div>
+            {% endif %}
+        {% endif %}
+
         <!-- Results Table -->
         {% if results %}
         <div class="card-body">
