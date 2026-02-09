@@ -95,17 +95,3 @@ joblib.dump(X.columns.tolist(), "feature_columns.pkl")
 
 print("\nModel and artifacts saved")
 
-# =====================================================
-# 8. Export test CSVs
-# =====================================================
-X[y == 0].iloc[:1].to_csv("normal_test.csv", index=False)
-X[y == 1].iloc[:1].to_csv("attack_test.csv", index=False)
-
-mixed_test = pd.concat([
-    X[y == 0].iloc[:3],
-    X[y == 1].iloc[:3]
-])
-
-mixed_test.to_csv("mixed_test.csv", index=False)
-
-print("\nCSV test files created")
